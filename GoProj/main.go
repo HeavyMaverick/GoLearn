@@ -1,18 +1,37 @@
-// На вход подается число типа float64.
-// Необходимо вывести преобразованное число, с 4 цифрами после запятой
-// 2 знака после запятой (fmt.Printf("%.2f\n", num)).
 package main
 
-import "fmt"
-
-var (
-	c float64
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strconv"
 )
 
 func main() {
-	_, err := fmt.Scanf("%f", &c)
-	if err != nil {
-		fmt.Println("Ошибка", err)
+	scanner := bufio.NewScanner(os.Stdin)
+	scanner.Split(bufio.ScanWords)
+	scanner.Scan()
+	a64, _ := strconv.ParseFloat(scanner.Text(), 64)
+	scanner.Scan()
+	b64, _ := strconv.ParseFloat(scanner.Text(), 64)
+	scanner.Scan()
+	op := scanner.Text()
+	a := float32(a64)
+	b := float32(b64)
+	switch op {
+	case "+":
+		fmt.Println(a + b)
+	case "-":
+		fmt.Println(a - b)
+	case "*":
+		fmt.Println(a * b)
+	case "/":
+		if b != 0 {
+			fmt.Println(a / b)
+		} else {
+			fmt.Println("Деление на ноль")
+		}
+	default:
+		fmt.Println("Некорректное значение!")
 	}
-	fmt.Printf("%.4f\n", c)
 }
