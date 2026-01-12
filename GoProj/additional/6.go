@@ -155,3 +155,58 @@ package additional
 // 		fmt.Print(v, " ")
 // 	}
 // }
+
+// Напишите программу,
+// принимающую на вход целое положительное число n
+// и последовательность изn целых положительных чисел,
+// которая выводит из этой последовательности только уникальные элементы
+// (уникальные элементы должны сохранять свой исходный порядок в последовательности).
+// func main() {
+// 	var scanner = bufio.NewScanner(os.Stdin)
+// 	scanner.Split(bufio.ScanWords)
+// 	scanner.Scan()
+// 	n, err := strconv.Atoi(scanner.Text())
+// 	if err != nil {
+// 		fmt.Println("Error", err)
+// 	}
+// 	myMap := map[int]int{}
+// 	for range n {
+// 		scanner.Scan()
+// 		item, _ := strconv.Atoi(scanner.Text())
+// 		if err != nil {
+// 			fmt.Println("Error in range", err)
+// 		}
+// 		myMap[item] = n
+// 	}
+// 	arr := []int{}
+// 	for key := range myMap {
+// 		arr = append(arr, key)
+// 	}
+// 	for i := range arr {
+// 		fmt.Print(arr[i], " ")
+// 	}
+// }
+
+// Напишите программу, которая будет запрашивать у пользователя
+// целое число n и последовательность из n целых положительных чисел
+// и выводить на экран наименьшее и наибольшее число в этой последовательности.
+// func main() {
+// 	var scanner = bufio.NewScanner(os.Stdin)
+// 	scanner.Split(bufio.ScanWords)
+// 	scanner.Scan()
+// 	n, _ := strconv.Atoi(scanner.Text())
+// 	var min = math.MaxInt
+// 	var max = 0
+// 	for range n {
+// 		scanner.Scan()
+// 		num, _ := strconv.Atoi(scanner.Text())
+// 		if num > max {
+// 			max = num
+// 		}
+// 		if num < min {
+// 			min = num
+// 		}
+// 	}
+// 	fmt.Println("Наименьшее число:", min)
+// 	fmt.Println("Наибольшее число:", max)
+// }
