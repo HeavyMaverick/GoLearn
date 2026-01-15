@@ -210,3 +210,81 @@ package additional
 // 	fmt.Println("Наименьшее число:", min)
 // 	fmt.Println("Наибольшее число:", max)
 // }
+
+// Напишите функцию factorial которая принимает неопределенное количество аргументов
+// (целые положительные числа) и возвращает факториал суммы переданных значений.
+// Т.е. надо вычислить сумму аргументов и вернуть факториал этой суммы.
+// func factorial(numbers ...int) {
+// 	sum := 0
+// 	for _, n := range numbers {
+// 		sum += n
+// 	}
+// 	result := 1
+// 	for i := 2; i <= sum; i++ {
+// 		result *= i
+// 	}
+// 	fmt.Println(result)
+// }
+
+// Напишите анонимную функцию,
+// которая принимает на вход слайс целых чисел и возвращает новый слайс,
+// содержащий только нечетные числа из исходного списка.
+// Написанную вами анонимную функцию присвойте переменной filterOddNumbers.
+// func main() {
+// 	filterOddNumbers := func(numbers []int) []int {
+// 		newSlice := []int{}
+// 		for i := range numbers {
+// 			if numbers[i]%2 != 0 {
+// 				newSlice = append(newSlice, numbers[i])
+// 			}
+// 		}
+// 		return newSlice
+// 	}
+// 	mySlice := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
+// 	fmt.Println(filterOddNumbers(mySlice))
+// }
+
+// Напишите анонимную функцию, которая принимает на вход слайс строк и функцию callback(),
+// которая, в свою очередь, принимает на вход строку и возвращает булево значение.
+// Функция должна вернуть новый слайс, содержащий только те строки из исходного слайса,
+// для которых функция callback() возвращает true.
+// Написанную вами функцию присвойте переменной filteredStrings.
+// filteredStrings := func(stringSlice []string, callback func(string) bool) []string {
+// 	result := []string{}
+// 	for i := 0; i < len(stringSlice); i++ {
+// 		if callback(stringSlice[i]) {
+// 			result = append(result, stringSlice[i])
+// 		}
+// 	}
+// 	return result
+// }
+
+// 1) создайте переменную a со значением 100
+// // 2) создайте указатель *ptr на  переменную a
+// // 3) присвойте значения указателя *ptr в указатель *ptr2
+// // 4) присвойте значение 200 через указатель *ptr2.
+// // 5) выведите содержимое обоих указателей в одной строке через пробел
+// func Abc() {
+// 	var a int = 100
+// 	var ptr *int = &a
+// 	var ptr2 *int = ptr
+// 	*ptr2 = 200
+// 	fmt.Println(ptr, ptr2)
+// }
+
+// func main() {
+// 	var scanner = bufio.NewScanner(os.Stdin)
+// 	scanner.Split(bufio.ScanWords)
+// 	var myMap map[string]int = map[string]int{}
+// 	for {
+// 		scanner.Scan()
+// 		var input string = scanner.Text()
+// 		if input == "stop" {
+// 			break
+// 		}
+// 		myMap[input] += 1
+// 	}
+// 	fmt.Println(myMap)
+// }
+// //apple banana apple pear apple banana stop
+// // map[apple:3 banana:2 pear:1]
