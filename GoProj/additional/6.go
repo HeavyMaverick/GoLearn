@@ -288,3 +288,25 @@ package additional
 // }
 // //apple banana apple pear apple banana stop
 // // map[apple:3 banana:2 pear:1]
+//
+// func isPalindrome() {
+// 	var s string
+// 	fmt.Scan(&s)
+// 	var runes []rune = []rune(strings.ToLower(s))
+// 	length := len(runes)
+// 	var ans bool = true
+// 	for i := 0; i < length/2; i++ {
+// 		if runes[i] != runes[length-1-i] {
+// 			ans = false
+// 			break
+// 		}
+// 	}
+// 	fmt.Println(strconv.FormatBool(ans))
+// }
+// mapIntegers := func(nums []int, callback func(int) int) []int {
+// 	var newSlice []int
+// 	for i := range nums {
+// 		newSlice = append(newSlice, callback(nums[i]))
+// 	}
+// 	return newSlice
+// }

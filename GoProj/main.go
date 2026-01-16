@@ -2,37 +2,26 @@ package main
 
 import (
 	"fmt"
+	"slices"
 )
 
-func factorial(n int) int {
-	if n == 0 {
-		return 1
-	}
-	return n * factorial(n-1)
-}
-func max(n ...int) (max int) {
-	for i := range n {
-		if n[i] > max {
-			max = n[i]
-		}
-	}
-	return max
-}
-func unique(s []string) []string {
-	seen := make(map[string]bool)
-	result := []string{}
-	for _, value := range s {
-		if !seen[value] {
-			seen[value] = true
-			result = append(result, value)
-		}
-	}
-	return result
-}
 func main() {
-	var s string
-	fmt.Scan(&s)
-	for i := range s {
-
+	var capacity int
+	_, err := fmt.Scan(&capacity)
+	if err != nil {
+		fmt.Println("Err", err)
+	}
+	queue := make([]int, 0, capacity)
+	for i := 0; i < 10; i++ {
+		queue = append(queue, i)
+		if i >= len(queue) {
+			queue = slices.Delete(queue, 0, 1)
+			var newQueue []int
+			for _, x := range queue {
+				newQueue = append(newQueue, x)
+			}
+			queue = newQueue
+		}
+		fmt.Printf("Добавлен %d: %v\n", i, queue)
 	}
 }
