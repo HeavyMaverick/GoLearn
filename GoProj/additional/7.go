@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-func fibonacci(n int) []int {
+func Fibonacci(n int) []int {
 	var slice []int = []int{0, 1}
 	if n <= 1 {
 		var ans []int = []int{0, 1, 1}
@@ -22,13 +22,13 @@ func fibonacci(n int) []int {
 	}
 	return slice
 }
-func factorial(n int) int {
+func Factorial(n int) int {
 	if n == 0 {
 		return 1
 	}
-	return n * factorial(n-1)
+	return n * Factorial(n-1)
 }
-func max(n ...int) (max int) {
+func Max(n ...int) (max int) {
 	for i := range n {
 		if n[i] > max {
 			max = n[i]
@@ -36,7 +36,7 @@ func max(n ...int) (max int) {
 	}
 	return max
 }
-func unique(s []string) []string {
+func Unique(s []string) []string {
 	seen := make(map[string]bool)
 	result := []string{}
 	for _, value := range s {
@@ -47,9 +47,12 @@ func unique(s []string) []string {
 	}
 	return result
 }
-func isPalindrome() {
+func IsPalindrome() {
 	var s string
-	fmt.Scan(&s)
+	_, err := fmt.Scan(&s)
+	if err != nil {
+		fmt.Println("Error", err)
+	}
 	var runes []rune = []rune(strings.ToLower(s))
 	length := len(runes)
 	var ans bool = true
