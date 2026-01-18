@@ -1,69 +1,69 @@
 package additional
 
-import (
-	"fmt"
-	"io"
-	"strings"
-)
+// import (
+// 	"fmt"
+// 	"io"
+// 	"strings"
+// )
 
-type Parent struct {
-	Name     string
-	Children []Child
-}
+// type Parent struct {
+// 	Name     string
+// 	Children []Child
+// }
 
-type Child struct {
-	Name string
-	Age  int
-}
+// type Child struct {
+// 	Name string
+// 	Age  int
+// }
 
-func CopyParent(p *Parent) Parent {
-	if p == nil {
-		return Parent{}
-	}
-	var abc []Child
-	return Parent{
-		Name:     p.Name,
-		Children: append(abc, p.Children...),
-	}
-}
+// func CopyParent(p *Parent) Parent {
+// 	if p == nil {
+// 		return Parent{}
+// 	}
+// 	var abc []Child
+// 	return Parent{
+// 		Name:     p.Name,
+// 		Children: append(abc, p.Children...),
+// 	}
+// }
 
-func Mmm() {
-	cp := CopyParent(nil) // -> Parent{}
-	p := &Parent{
-		Name: "Harry",
-		Children: []Child{
-			{
-				Name: "Andy",
-				Age:  18,
-			},
-		},
-	}
-	cp = CopyParent(p)
-	// при мутациях в копии "cp"
-	// изначальная структура "p" не изменяется
-	cp.Children[0] = Child{
-		Name: "Gosha",
-		Age:  30,
-	}
-	fmt.Println(p.Children)  // -> [{Andy 18}]
-	fmt.Println(cp.Children) // -> [{Gosha 30}]
-	r := strings.NewReader("Привет")
-	ProcessData(r)
-}
+// func Mmm() {
+// 	cp := CopyParent(nil) // -> Parent{}
+// 	p := &Parent{
+// 		Name: "Harry",
+// 		Children: []Child{
+// 			{
+// 				Name: "Andy",
+// 				Age:  18,
+// 			},
+// 		},
+// 	}
+// 	cp = CopyParent(p)
+// 	// при мутациях в копии "cp"
+// 	// изначальная структура "p" не изменяется
+// 	cp.Children[0] = Child{
+// 		Name: "Gosha",
+// 		Age:  30,
+// 	}
+// 	fmt.Println(p.Children)  // -> [{Andy 18}]
+// 	fmt.Println(cp.Children) // -> [{Gosha 30}]
+// 	r := strings.NewReader("Привет")
+// 	ProcessData(r)
+// }
 
-func ProcessData(reader io.Reader) {
-	b := make([]byte, 2)
-	for {
-		n, err := reader.Read(b)
-		if n == 0 {
-			break
-		}
-		fmt.Printf("Read %v bytes: %v\n", n, string(b))
-		if err == io.EOF {
-			return
-		}
-	}
-}
+// func ProcessData(reader io.Reader) {
+// 	b := make([]byte, 2)
+// 	for {
+// 		n, err := reader.Read(b)
+// 		if n == 0 {
+// 			break
+// 		}
+// 		fmt.Printf("Read %v bytes: %v\n", n, string(b))
+// 		if err == io.EOF {
+// 			return
+// 		}
+// 	}
+// }
 
 // 123abc123
 // sum 123 123
@@ -231,4 +231,148 @@ func ProcessData(reader io.Reader) {
 // 			fmt.Println("Error")
 // 		}
 // 	}
+// }
+//
+// Hello, World!
+// HelloWorld
+// func main() {
+// 	var scanner = bufio.NewScanner(os.Stdin)
+// 	scanner.Scan()
+// 	inputString := scanner.Text()
+// 	var newString strings.Builder
+// 	for _, runee := range inputString {
+// 		if (unicode.IsLetter(runee) || unicode.IsDigit(runee)) && string(runee) != " " {
+// 			newString.WriteString(string(runee))
+// 		}
+// 	}
+// 	fmt.Println(newString.String())
+// }
+// John 30 street
+// {"name":"John","age":30,"address":"street"}
+// func main() {
+// 	var name, address string
+// 	var age int
+// 	_, err := fmt.Scanf("%s %d %s", &name, &age, &address)
+// 	if err != nil {
+// 		fmt.Println("Error", err)
+// 	}
+// 	var p Person = Person{
+// 		Name:    name,
+// 		Age:     age,
+// 		Address: address,
+// 	}
+// 	jsonBytes, err := json.Marshal(p)
+// 	if err != nil {
+// 		fmt.Println("Error", err)
+// 	}
+// 	fmt.Printf("%s", jsonBytes)
+// }
+
+// sum all nums in file
+// exmple : 123asdasd12asdasd
+// output: 135
+// func main() {
+// 	bytes, err := os.ReadFile("ex1file.text")
+// 	if err != nil {
+// 		fmt.Println("Error", err)
+// 	}
+// 	var currentNumber string
+// 	var sum int
+// 	for _, v := range bytes {
+// 		if unicode.IsDigit(rune(v)) {
+// 			currentNumber += string(v)
+// 		} else {
+// 			if currentNumber != "" {
+// 				n, _ := strconv.Atoi(currentNumber)
+// 				sum += n
+// 				currentNumber = ""
+// 			}
+// 		}
+// 	}
+// 	fmt.Println(sum)
+// }
+// Sample Input:
+// AaaAaaA
+// Sample Output:
+// aaaa
+// func main() {
+// 	bytes, err := os.ReadFile("ex2file.text")
+// 	if err != nil {
+// 		fmt.Println("Error", err)
+// 	}
+// 	file, err := os.Create("newFile.txt")
+// 	if err != nil {
+// 		fmt.Println("Error", err)
+// 	}
+// 	defer file.Close()
+// 	var bb []byte
+// 	for _, value := range bytes {
+// 		if unicode.IsLower(rune(value)) {
+// 			bb = append(bb, value)
+// 		}
+// 	}
+// 	_, err = file.Write(bb)
+// 	if err != nil {
+// 		fmt.Println("Error")
+// 	}
+// 	fmt.Println("Completed")
+// }
+
+// in
+// aaabbbc
+// out
+// a3b3c1
+// func main() {
+// 	var myString string
+// 	_, err := fmt.Scanf("%s", &myString)
+// 	if err != nil {
+// 		fmt.Println("error", err)
+// 	}
+// 	if len(myString) == 0 {
+// 		fmt.Println("")
+// 		return
+// 	}
+// 	var count int = 1
+// 	var current byte = myString[0]
+// 	var result strings.Builder
+// 	for i := 1; i < len(myString); i++ {
+// 		if myString[i] == current {
+// 			count++
+// 		} else {
+// 			result.WriteByte(current)
+// 			result.WriteString(strconv.Itoa(count))
+// 			current = myString[i]
+// 			count = 1
+// 		}
+// 	}
+// 	result.WriteByte(current)
+// 	result.WriteString(strconv.Itoa(count))
+// 	fmt.Println(result.String())
+// }
+
+// ---------------------------
+// Напишите программу,
+// которая принимает строку в формате json и распаковывает ее в структуру Person,
+// переменную в которой будет храниться структура назовите p.
+// Если формат введенной строки не соответствует формату json
+// выведите  "Некорректное значение json!" и завершите выполнение программы.
+// type Person struct {
+// 	Name    string `json:"name"`
+// 	Age     int    `json:"age"`
+// 	Address string `json:"address"`
+// }
+
+// func main() {
+// 	var stringJson string
+// 	_, err := fmt.Scanln(&stringJson)
+// 	if err != nil {
+// 		fmt.Println("Некорректное значение json!")
+// 	}
+// 	var p Person = Person{}
+// 	err = json.Unmarshal([]byte(stringJson), &p)
+// 	if err != nil {
+// 		fmt.Println("Некорректное значение json!")
+// 		return
+// 	}
+// 	fmt.Println(p)
 // }
