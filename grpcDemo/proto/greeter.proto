@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option go_package = "grpcDemo/proto";
+
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloResponse {
+  string name = 1;
+}
+// Принимает сообщение типа HelloRequest
+// и возвращает сообщение типа HelloResponse
+service Greeter {
+    Rpc sayHello (HelloRequest) returns (HelloResponse);
+}
