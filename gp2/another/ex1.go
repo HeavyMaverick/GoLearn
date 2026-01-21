@@ -1,10 +1,10 @@
 package another
 
-import (
-	"bufio"
-	"fmt"
-	"os"
-)
+// import (
+// 	"bufio"
+// 	"fmt"
+// 	"os"
+// )
 
 // Код в котором одна горутина генерирует данные,
 // а другая горутина выводит эти данные на экран.
@@ -15,15 +15,15 @@ import (
 // Sample Output:
 // Привет, Go!
 
-func Another() {
-	sc := bufio.NewScanner(os.Stdin)
-	sc.Scan()
-	s := sc.Text()
-	ch := make(chan string)
+// func Another() {
+// 	sc := bufio.NewScanner(os.Stdin)
+// 	sc.Scan()
+// 	s := sc.Text()
+// 	ch := make(chan string)
 
-	go func(channel chan<- string) {
-		channel <- s
-	}(ch)
-	msg := <-ch
-	fmt.Println("Прочитано из канала", msg)
-}
+// 	go func(channel chan<- string) {
+// 		channel <- s
+// 	}(ch)
+// 	msg := <-ch
+// 	fmt.Println("Прочитано из канала", msg)
+// }
