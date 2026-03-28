@@ -1,13 +1,9 @@
-package main
+package leet
 
 import (
 	"strconv"
 	"strings"
 )
-
-func main() {
-	isPalindrome(121)
-}
 
 func isPalindrome(x int) bool {
 	var builder strings.Builder
